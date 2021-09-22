@@ -96,8 +96,21 @@ Project running commands are divided into 2 sections :
     flask run --reload
 
 ```
+## Steps To Run The Project Frontend
 
+```sh
+    cd # Write the directory path where you saved the project
 
+    myownenv\Scripts\activate # replace 'myownenv' with the name of your own vir. env.
+    
+    npm install
+
+    cd frontend
+
+    npm start
+
+    URL : http://localhost:4200/
+```
 ## Testing 
 
 There are 2 different ways for testing the endpoints 
