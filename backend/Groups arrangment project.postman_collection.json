@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "e6de1ae0-e3a1-4cde-9c05-b78fec6305b3",
+		"name": "GA System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "/Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Groups-Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Groups-Details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Groups-Details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Post-Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Post-Group",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Post-Group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Edit-Group/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Edit-Group/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Edit-Group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Delete-Group/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Delete-Group/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Delete-Group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1IeVdzQktLX1R3X2pqWHFOZy1yRyJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtY29mZmVlLXNob3AtcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjExZDNkNjZiNTQwZGQwMDZiMmJmOTVjIiwiYXVkIjoiQ2Fwc3RvbmUtV2Vic2l0ZSIsImlhdCI6MTYzMjMyMDg4MCwiZXhwIjoxNjMyNDA3MjgwLCJhenAiOiI5U0tvd20wR0g2V3d2d3dNRFcyVVBBT1JoRHB3ZnJWQiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0Omdyb3VwcyIsImdldDpncm91cHMtZGV0YWlscyJdfQ.st_nIEVbq9SCLDkm7d6oxt--Ehzc4SMULl2hMv83lF56z-aTGfHIyKxUk2PTc3F8bb3iGRuFMCE6V3x661rAWR4MjMAYmOLHCPbeoNZQ4ZHxRamhXT75XqlvtV3VYZl-VuXO1LO6X_ZF9ekaTj2UFyVEYdvkl0H10Sjjw95jPhCUp6kPO1T5r9x4xyuAlizahjtNhe1hD75aLtxjZL_-ApR6k4j0-t7bJvZReBKFn87PGpzm-6B9NHRuZvNcz7R3Ai9LcuP1i1i_ehwU8DO8DMmFcoY_oFH5YqukJpF2yrD0nq7R18KthFQ0C7pzjPPcmoAOLnUSOaZ9B2KuSKJjAA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Groups-Supervisor",
+			"item": [
+				{
+					"name": "/Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Groups-Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Groups-Details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Groups-Details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Post-Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Post-Group",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Post-Group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Edit-Group/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n    \"title\": \"T. Waad\"\r\n}"
+						},
+						"url": {
+							"raw": "{{host}}/Edit-Group/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Edit-Group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Delete-Group/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403 since credentials are valid, but permission is not present\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Delete-Group/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Delete-Group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1IeVdzQktLX1R3X2pqWHFOZy1yRyJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtY29mZmVlLXNob3AtcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjEwOTYwYWRjNjFmZDcwMDc3ZDE2NTZmIiwiYXVkIjoiQ2Fwc3RvbmUtV2Vic2l0ZSIsImlhdCI6MTYzMjMyMTA1NiwiZXhwIjoxNjMyNDA3NDU2LCJhenAiOiI5U0tvd20wR0g2V3d2d3dNRFcyVVBBT1JoRHB3ZnJWQiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0Omdyb3VwcyIsImdldDpncm91cHMtZGV0YWlscyIsInBhdGNoOmdyb3VwcyJdfQ.plo9oiGKKficuN2dGjxP_C7SNy_ZzcutuzuioQr7mB_eNV9M6j0TvRuitdY-_hJofEoXuokM9fnq78reLVqnC1Rqovvv59_ClqhLpZ36L7CWKvWa0WLAkNcMLg1iVYAZ9gqoVQbxKLGWmVraj6m0RQ_2Yp_G0Vnm8QCrDdEehnMTC7MWGaYV03HfxzOQ5H_x4C2BjPhsT7Grsb-O6kqIgi1Xl99b56XimKUx1JZf8kdXpxbxQ4vs8r3MpchEwPRRoncNcnftBXnCYZ0tblTsuOjUxckP85LlViSCKdFBqBkoHFNZAjEHdZjJMpjJuem7Aa_AgYYNwTXN7_lSp9GAHA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Groups-Manager",
+			"item": [
+				{
+					"name": "/Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Groups",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Groups-Details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Groups-Details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Groups-Details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Post-Group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"T. Norah\",\n    \"recipe\": [{\n        \"name\": \"Waad\",\n        \"color\": \"Waad19@gmail.com\",\n        \"parts\": 545101586\n    }]\n}"
+						},
+						"url": {
+							"raw": "{{host}}/Post-Group",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Post-Group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Edit-Group/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains drinks array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.drinks).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"title\": \"T. Arwa\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/Edit-Group/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Edit-Group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/Delete-Group/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/Delete-Group/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"Delete-Group",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im1IeVdzQktLX1R3X2pqWHFOZy1yRyJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtY29mZmVlLXNob3AtcHJvamVjdC51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjEwOTViNzIzNTgyYmMwMDY5NDdkOTlkIiwiYXVkIjoiQ2Fwc3RvbmUtV2Vic2l0ZSIsImlhdCI6MTYzMjMxOTMwNiwiZXhwIjoxNjMyNDA1NzA2LCJhenAiOiI5U0tvd20wR0g2V3d2d3dNRFcyVVBBT1JoRHB3ZnJWQiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmdyb3VwIiwiZ2V0Omdyb3VwcyIsImdldDpncm91cHMtZGV0YWlscyIsInBhdGNoOmdyb3VwcyIsInBvc3Q6Z3JvdXAiXX0.oXvdJoSd9b-d8YR23J0nDDpj6Z56CJ7gH50krpxdDtJcUSmb25KfXjguTU-6KlYKlMPADNOVcYdOKH11n5w5AwiGAFSPkltYaEgkvkh6ihExBIcrxx7kT_pawQKUK2j15_l7Vn3fXXPELSNce56KLrhyG12j3XdtL7a2v-e0ftO0R2IHu2zzAjsPzl8JoHB9-zLVUVG_-UzcyvwN1vAjavF6R0ICsMVxc6nrM0vleKc5GZvjhQ9X40NaIKMGFPqHNln6vgCinD_v0R2kpXoWIIDc1nTiDD9cAYYy4k-INJWhGSN1-TOH0g2rtuaCid0zkgzwez3k2N2HB1lW_s2xdw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}

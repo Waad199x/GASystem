@@ -1,0 +1,18 @@
+
+<ion-header>
+  <ion-toolbar style="text-align: center; color:#5e6161; ">
+        <ion-title><b  style="text-align: center; color:#9ad3d0;">User</b> Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="!auth.token">
+  <ion-button [href]="loginURL"><b style="text-align: center;color:#5e6161;">Log In</b></ion-button>
+</ion-content>
+
+<ion-content *ngIf="auth.token">
+  <ion-button (click)="auth.logout()"><b style="text-align: center;color:#5e6161;">Log Out</b></ion-button>
+      <ion-item>
+        <ion-label>Active JWT</ion-label>
+        <ion-textarea [ngModel]="auth.token" name="Active JWT"></ion-textarea>
+      </ion-item>
+</ion-content>

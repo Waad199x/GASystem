@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="isNew">Create New Group</ion-title>
+    <ion-title *ngIf="!isNew">Group Editor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="drink">
+
+    <form (ngSubmit)="logForm()">
+      <ion-item>
+        <ion-label><b>Teacher Name</b></ion-label>
+        <ion-input type="text" [(ngModel)]="drink.title" name="title"></ion-input>
+      </ion-item>
+
+      <ion-item *ngFor="let ingredient of drink.recipe; let i = index;  trackBy: customTrackBy">
+        <ion-label><b>Student Name</b></ion-label>
+        <ion-input [(ngModel)]="drink.recipe[i].name" [name]="'Ingredient Title'+i"></ion-input>
+
+        <ion-label>  <ion-icon name="logo-whatsapp"></ion-icon>        </ion-label>
+        <ion-input type="number" [(ngModel)]="drink.recipe[i].parts" [name]="'Ingredient Parts'+i"></ion-input>
+
+        <ion-label><b>Email</b></ion-label>
+        <ion-input type="text" [(ngModel)]="drink.recipe[i].color" [name]="'Ingredient Color'+i"></ion-input>
+
+        <ion-button (click)="removeIngredient(i)" [disabled]="i==0 && drink.recipe.length==1"><ion-icon name="trash"></ion-icon></ion-button><br />
+        <ion-button (click)="addIngredient(i)" [disabled]="drink.recipe.length==5">  <ion-icon name="person-add"></ion-icon>
+        </ion-button><br />
+
+      </ion-item>
+
+      <ion-button 
+        [disabled]="!auth.can('delete:group')"
+        (click)="deleteClicked()">Delete</ion-button><br />
+      <ion-button (click)="closeModal()">Cancel</ion-button>
+      <ion-button 
+        [disabled]="!auth.can('patch:groups') || !auth.can('post:group')"
+        (click)="saveClicked()">Save</ion-button>
+
+    </form>
+</ion-content>
