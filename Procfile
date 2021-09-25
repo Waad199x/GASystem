@@ -1,1 +1,1 @@
-web: cd backend\src && FLASK_APP=api.py && flask run --reload
+server: cd backend\src && FLASK_APP=api.py && flask run --reload
