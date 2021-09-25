@@ -1,2 +1,1 @@
-web:  python api.py
-web: npm --prefix ./frontend install
+web: cd backend\src && python api.py
