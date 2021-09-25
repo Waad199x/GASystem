@@ -1,1 +1,1 @@
-web: cd backend/src && python api.py
+server: cd backend/src && python api.py
