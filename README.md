@@ -133,4 +133,6 @@ There are 2 different ways for testing the endpoints
 
 ```
 
+##The Application is hosted on 
+## https://ga-system.herokuapp.com/
 
